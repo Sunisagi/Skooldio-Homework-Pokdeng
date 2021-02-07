@@ -1,9 +1,3 @@
-const readline = require("readline");
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
 const inputReader = require('wait-console-input')
 
 let playerCard = {
@@ -27,11 +21,9 @@ let dealerCard = {
     }
 }
 let playerSum = 0;
-let playerBet = 0;
 let isContinue = true;
 while(isContinue) {
     let bet = inputReader.readInteger("Please put your bet \n");
-    console.log(bet);
     playerCard.card1 = randomCard();
     playerCard.card2 = randomCard();
     dealerCard.card1 = randomCard();
@@ -40,7 +32,6 @@ while(isContinue) {
     console.log("The dealer got " + match(dealerCard.card1) + ", " + match(dealerCard.card2));
     playerSum = whoWin(playerCard,dealerCard,bet,playerSum);
     let next = inputReader.readLine("Wanna play more (Yes/No)? \n");
-    console.log(next);
     switch(next.toLowerCase()){
         case "yes" : isContinue = true; break;
         case "no" : 
